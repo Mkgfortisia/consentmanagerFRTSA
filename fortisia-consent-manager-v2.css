@@ -68,8 +68,8 @@
 #silktide-wrapper #silktide-modal button:focus,
 #silktide-wrapper #silktide-cookie-icon:focus {
   outline: none;
-  box-shadow: var(--focus);
-  border-radius: 5px;
+  box-shadow: none;
+  border-radius: 8px;
 }
 
 #silktide-wrapper #silktide-cookie-icon:focus {
@@ -109,6 +109,8 @@
   background-color: transparent;
   color: #FFFFFF;
   border: 2px solid rgba(255,255,255,0.55);
+  font-size: 13px;
+  padding: 10px 14px;
 }
 
 #silktide-wrapper .st-button--secondary:hover {
@@ -123,11 +125,11 @@
 #silktide-banner {
   font-family: var(--fontFamily);
   color: var(--textColor);
-  background-color: var(--backgroundColor);
+  background-color: #0a1f1b;
   box-sizing: border-box;
   padding: 28px 32px;
   border-radius: 12px;
-  border: 1px solid rgba(255,153,54,0.4);
+  border: 1px solid rgba(255,153,54,0.6);
   pointer-events: auto;
   position: fixed;
   bottom: 16px;
@@ -140,7 +142,7 @@
   opacity: 0;
   animation: silktide-slideInDown 350ms ease-out forwards;
   animation-delay: 0.3s;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+  box-shadow: 0 0 0 1px rgba(255,153,54,0.2), 0 32px 80px rgba(0,0,0,0.7);
 }
 
 #silktide-banner:focus {
