@@ -285,7 +285,7 @@ class SilktideCookieBanner {
     }>${acceptAllButtonText}</button>`;
     
     // Preferences button (remplace le bouton reject — force l'ouverture du modal)
-    const preferencesButtonText = this.config.text?.banner?.preferencesButtonText || 'Gérer mes préférences';
+    const preferencesButtonText = this.config.text?.banner?.preferencesButtonText || 'Mes préférences';
     const preferencesButtonLabel = this.config.text?.banner?.preferencesButtonAccessibleLabel;
     const preferencesButton = `<button class="preferences st-button st-button--secondary"${
       preferencesButtonLabel && preferencesButtonLabel !== preferencesButtonText 
