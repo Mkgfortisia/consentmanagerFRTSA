@@ -11,15 +11,15 @@
 /* Wrapper (Global) */
 #silktide-wrapper {
               --focus: 0 0 0 2px #ffffff, 0 0 0 4px #000000, 0 0 0 6px #ffffff;
-              --boxShadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+              --boxShadow: 0 24px 60px rgba(0,0,0,0.45);
               --fontFamily: "Poppins", Helvetica Neue, sans-serif;
               --primaryColor: #FF9936;
-              --backgroundColor: #153F37;
+              --backgroundColor: #0e2b25;
               --textColor: #FFFFFF;
-              --backdropBackgroundColor: rgba(0, 0, 0, 0.4);
+              --backdropBackgroundColor: rgba(0,0,0,0.55);
               --backdropBackgroundBlur: 0px;
               --cookieIconColor: #FF9936;
-              --cookieIconBackgroundColor: #153F37;
+              --cookieIconBackgroundColor: #0e2b25;
               position: fixed;
   bottom: 0;
   right: 0;
@@ -84,35 +84,36 @@
   text-decoration: none;
   text-align: center;
   display: inline-block;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 24px;
   cursor: pointer;
   border-radius: 8px;
-  padding: 10px 20px;
+  padding: 10px 22px;
   font-weight: 600;
   font-family: var(--fontFamily);
 }
 
 #silktide-wrapper .st-button--primary {
-  background-color: var(--primaryColor);
-  color: #153F37;
-  border: 2px solid var(--primaryColor);
+  background-color: #FF9936;
+  color: #0e2b25;
+  border: 2px solid #FF9936;
 }
 
 #silktide-wrapper .st-button--primary:hover {
   background-color: #e8892f;
   border-color: #e8892f;
-  color: #153F37;
+  color: #0e2b25;
 }
 
 #silktide-wrapper .st-button--secondary {
   background-color: transparent;
   color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(255,255,255,0.55);
 }
 
 #silktide-wrapper .st-button--secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.85);
   color: #FFFFFF;
 }
 
@@ -124,14 +125,14 @@
   color: var(--textColor);
   background-color: var(--backgroundColor);
   box-sizing: border-box;
-  padding: 32px;
+  padding: 28px 32px;
   border-radius: 12px;
+  border: 1px solid rgba(255,153,54,0.4);
   pointer-events: auto;
-  border: 0px;
   position: fixed;
   bottom: 16px;
   right: 16px;
-  width: 600px;
+  width: 560px;
   overflow: auto;
   max-width: calc(100% - 32px);
   max-height: calc(100vh - 32px);
@@ -139,7 +140,7 @@
   opacity: 0;
   animation: silktide-slideInDown 350ms ease-out forwards;
   animation-delay: 0.3s;
-  box-shadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.45);
 }
 
 #silktide-banner:focus {
