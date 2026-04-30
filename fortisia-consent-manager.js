@@ -273,10 +273,10 @@ class SilktideCookieBanner {
   getBannerContent() {
     const bannerDescription =
       this.config.text?.banner?.description ||
-      "<p>We use cookies on our site to enhance your user experience, provide personalized content, and analyze our traffic.</p>";
+      "<p>Nous utilisons des témoins pour améliorer votre expérience, personnaliser le contenu et analyser notre trafic.</p>";
 
     // Accept button
-    const acceptAllButtonText = this.config.text?.banner?.acceptAllButtonText || 'Accept all';
+    const acceptAllButtonText = this.config.text?.banner?.acceptAllButtonText || 'Tout accepter';
     const acceptAllButtonLabel = this.config.text?.banner?.acceptAllButtonAccessibleLabel;
     const acceptAllButton = `<button class="accept-all st-button st-button--primary"${
       acceptAllButtonLabel && acceptAllButtonLabel !== acceptAllButtonText 
@@ -284,24 +284,14 @@ class SilktideCookieBanner {
         : ''
     }>${acceptAllButtonText}</button>`;
     
-    // Reject button
-    const rejectNonEssentialButtonText = this.config.text?.banner?.rejectNonEssentialButtonText || 'Reject non-essential';
-    const rejectNonEssentialButtonLabel = this.config.text?.banner?.rejectNonEssentialButtonAccessibleLabel;
-    const rejectNonEssentialButton = `<button class="reject-all st-button st-button--primary"${
-      rejectNonEssentialButtonLabel && rejectNonEssentialButtonLabel !== rejectNonEssentialButtonText 
-        ? ` aria-label="${rejectNonEssentialButtonLabel}"` 
-        : ''
-    }>${rejectNonEssentialButtonText}</button>`;
-
-    // Preferences button
-    const preferencesButtonText = this.config.text?.banner?.preferencesButtonText || 'Preferences';
+    // Preferences button (remplace le bouton reject — force l'ouverture du modal)
+    const preferencesButtonText = this.config.text?.banner?.preferencesButtonText || 'Gérer mes préférences';
     const preferencesButtonLabel = this.config.text?.banner?.preferencesButtonAccessibleLabel;
-    const preferencesButton = `<button class="preferences"${
+    const preferencesButton = `<button class="preferences st-button st-button--secondary"${
       preferencesButtonLabel && preferencesButtonLabel !== preferencesButtonText 
         ? ` aria-label="${preferencesButtonLabel}"` 
         : ''
-    }><span>${preferencesButtonText}</span></button>`;
-    
+    }>${preferencesButtonText}</button>`;
 
     // Silktide logo link
     const silktideLogo = `
@@ -316,7 +306,7 @@ class SilktideCookieBanner {
       ${bannerDescription}
       <div class="actions">                               
         ${acceptAllButton}
-        <button class="preferences st-button st-button--secondary"><span>${preferencesButtonText}</span></button>
+        ${preferencesButton}
         <div class="actions-row">
           ${silktideLogo}
         </div>
@@ -371,11 +361,11 @@ class SilktideCookieBanner {
   // ----------------------------------------------------------------
   getModalContent() {
     const preferencesTitle =
-      this.config.text?.preferences?.title || 'Customize your cookie preferences';
+      this.config.text?.preferences?.title || 'Gérer vos préférences';
     
     const preferencesDescription =
       this.config.text?.preferences?.description ||
-      "<p>We respect your right to privacy. You can choose not to allow some types of cookies. Your cookie preferences will apply across our website.</p>";
+      "<p>Vous pouvez choisir de ne pas autoriser certains types de témoins. Vos préférences s'appliqueront sur l'ensemble de notre site.</p>";
     
     // Preferences button
     const preferencesButtonLabel = this.config.text?.banner?.preferencesButtonAccessibleLabel;
@@ -391,7 +381,7 @@ class SilktideCookieBanner {
     const acceptedCookieMap = this.getAcceptedCookies();
 
     // Accept button
-    const acceptAllButtonText = this.config.text?.banner?.acceptAllButtonText || 'Accept all';
+    const acceptAllButtonText = this.config.text?.banner?.acceptAllButtonText || 'Tout accepter';
     const acceptAllButtonLabel = this.config.text?.banner?.acceptAllButtonAccessibleLabel;
     const acceptAllButton = `<button class="preferences-accept-all st-button st-button--primary"${
       acceptAllButtonLabel && acceptAllButtonLabel !== acceptAllButtonText 
@@ -400,16 +390,16 @@ class SilktideCookieBanner {
     }>${acceptAllButtonText}</button>`;
     
     // Reject button
-    const rejectNonEssentialButtonText = this.config.text?.banner?.rejectNonEssentialButtonText || 'Reject non-essential';
+    const rejectNonEssentialButtonText = this.config.text?.banner?.rejectNonEssentialButtonText || 'Refuser les non essentiels';
     const rejectNonEssentialButtonLabel = this.config.text?.banner?.rejectNonEssentialButtonAccessibleLabel;
-    const rejectNonEssentialButton = `<button class="preferences-reject-all st-button st-button--primary"${
+    const rejectNonEssentialButton = `<button class="preferences-reject-all st-button st-button--secondary"${
       rejectNonEssentialButtonLabel && rejectNonEssentialButtonLabel !== rejectNonEssentialButtonText 
         ? ` aria-label="${rejectNonEssentialButtonLabel}"` 
         : ''
     }>${rejectNonEssentialButtonText}</button>`;
     
     // Credit link
-    const creditLinkText = this.config.text?.preferences?.creditLinkText || 'Get this banner for free';
+    const creditLinkText = this.config.text?.preferences?.creditLinkText !== undefined ? this.config.text.preferences.creditLinkText : '';
     const creditLinkAccessibleLabel = this.config.text?.preferences?.creditLinkAccessibleLabel;
     const creditLink = `<a href="https://silktide.com/consent-manager" target="_blank" rel="noreferrer"${
       creditLinkAccessibleLabel && creditLinkAccessibleLabel !== creditLinkText
