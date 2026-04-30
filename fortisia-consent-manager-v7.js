@@ -273,7 +273,7 @@ class SilktideCookieBanner {
   getBannerContent() {
     const bannerDescription =
       this.config.text?.banner?.description ||
-      "<p>Nous utilisons des témoins pour améliorer votre expérience, personnaliser le contenu et analyser notre trafic.</p>";
+      "<p>We use cookies on our site to enhance your user experience, provide personalized content, and analyze our traffic.</p>";
 
     // Accept button
     const acceptAllButtonText = this.config.text?.banner?.acceptAllButtonText || 'Tout accepter';
@@ -284,14 +284,24 @@ class SilktideCookieBanner {
         : ''
     }>${acceptAllButtonText}</button>`;
     
-    // Preferences button (remplace le bouton reject — force l'ouverture du modal)
+    // Reject button
+    const rejectNonEssentialButtonText = this.config.text?.banner?.rejectNonEssentialButtonText || 'Refuser les non essentiels';
+    const rejectNonEssentialButtonLabel = this.config.text?.banner?.rejectNonEssentialButtonAccessibleLabel;
+    const rejectNonEssentialButton = `<button class="reject-all st-button st-button--primary"${
+      rejectNonEssentialButtonLabel && rejectNonEssentialButtonLabel !== rejectNonEssentialButtonText 
+        ? ` aria-label="${rejectNonEssentialButtonLabel}"` 
+        : ''
+    }>${rejectNonEssentialButtonText}</button>`;
+
+    // Preferences button
     const preferencesButtonText = this.config.text?.banner?.preferencesButtonText || 'Mes préférences';
     const preferencesButtonLabel = this.config.text?.banner?.preferencesButtonAccessibleLabel;
-    const preferencesButton = `<button class="preferences st-button st-button--secondary"${
+    const preferencesButton = `<button class="preferences"${
       preferencesButtonLabel && preferencesButtonLabel !== preferencesButtonText 
         ? ` aria-label="${preferencesButtonLabel}"` 
         : ''
-    }>${preferencesButtonText}</button>`;
+    }><span>${preferencesButtonText}</span></button>`;
+    
 
     // Silktide logo link
     const silktideLogo = `
@@ -306,7 +316,7 @@ class SilktideCookieBanner {
       ${bannerDescription}
       <div class="actions">                               
         ${acceptAllButton}
-        ${preferencesButton}
+        <button class="preferences st-button st-button--secondary">${preferencesButtonText}</button>
         <div class="actions-row">
           ${silktideLogo}
         </div>
@@ -365,7 +375,7 @@ class SilktideCookieBanner {
     
     const preferencesDescription =
       this.config.text?.preferences?.description ||
-      "<p>Vous pouvez choisir de ne pas autoriser certains types de témoins. Vos préférences s'appliqueront sur l'ensemble de notre site.</p>";
+      "<p>We respect your right to privacy. You can choose not to allow some types of cookies. Your cookie preferences will apply across our website.</p>";
     
     // Preferences button
     const preferencesButtonLabel = this.config.text?.banner?.preferencesButtonAccessibleLabel;
@@ -392,14 +402,14 @@ class SilktideCookieBanner {
     // Reject button
     const rejectNonEssentialButtonText = this.config.text?.banner?.rejectNonEssentialButtonText || 'Refuser les non essentiels';
     const rejectNonEssentialButtonLabel = this.config.text?.banner?.rejectNonEssentialButtonAccessibleLabel;
-    const rejectNonEssentialButton = `<button class="preferences-reject-all st-button st-button--secondary"${
+    const rejectNonEssentialButton = `<button class="preferences-reject-all st-button st-button--primary"${
       rejectNonEssentialButtonLabel && rejectNonEssentialButtonLabel !== rejectNonEssentialButtonText 
         ? ` aria-label="${rejectNonEssentialButtonLabel}"` 
         : ''
     }>${rejectNonEssentialButtonText}</button>`;
     
     // Credit link
-    const creditLinkText = this.config.text?.preferences?.creditLinkText !== undefined ? this.config.text.preferences.creditLinkText : '';
+    const creditLinkText = this.config.text?.preferences?.creditLinkText || '';
     const creditLinkAccessibleLabel = this.config.text?.preferences?.creditLinkAccessibleLabel;
     const creditLink = `<a href="https://silktide.com/consent-manager" target="_blank" rel="noreferrer"${
       creditLinkAccessibleLabel && creditLinkAccessibleLabel !== creditLinkText
