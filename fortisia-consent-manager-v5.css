@@ -105,18 +105,23 @@
   color: #0e2b25;
 }
 
-#silktide-wrapper .st-button--secondary {
-  background-color: transparent;
-  color: #FFFFFF;
-  border: 2px solid rgba(255,255,255,0.55);
-  font-size: 13px;
-  padding: 10px 14px;
+#silktide-wrapper .st-button--secondary,
+#silktide-banner button.preferences.st-button.st-button--secondary {
+  background-color: transparent !important;
+  color: #FFFFFF !important;
+  border: 2px solid rgba(255,255,255,0.55) !important;
+  font-size: 13px !important;
+  padding: 10px 12px !important;
+  white-space: nowrap !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
 }
 
-#silktide-wrapper .st-button--secondary:hover {
-  background-color: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.85);
-  color: #FFFFFF;
+#silktide-wrapper .st-button--secondary:hover,
+#silktide-banner button.preferences.st-button.st-button--secondary:hover {
+  background-color: rgba(255,255,255,0.08) !important;
+  border-color: rgba(255,255,255,0.85) !important;
+  color: #FFFFFF !important;
 }
 
 /* --------------------------------
@@ -124,12 +129,12 @@
 -------------------------------- */
 #silktide-banner {
   font-family: var(--fontFamily);
-  color: var(--textColor);
-  background-color: #0a1f1b;
+  color: #FFFFFF !important;
+  background-color: #0a1f1b !important;
   box-sizing: border-box;
   padding: 28px 32px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,153,54,0.6);
+  border-radius: 12px !important;
+  border: 1px solid rgba(255,153,54,0.6) !important;
   pointer-events: auto;
   position: fixed;
   bottom: 16px;
@@ -142,7 +147,11 @@
   opacity: 0;
   animation: silktide-slideInDown 350ms ease-out forwards;
   animation-delay: 0.3s;
-  box-shadow: 0 0 0 1px rgba(255,153,54,0.2), 0 32px 80px rgba(0,0,0,0.7);
+  box-shadow: 0 0 0 1px rgba(255,153,54,0.2), 0 32px 80px rgba(0,0,0,0.7) !important;
+}
+
+#silktide-banner p {
+  color: #FFFFFF !important;
 }
 
 #silktide-banner:focus {
